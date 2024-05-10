@@ -320,9 +320,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602b189f4d5f2144396e277eaa698b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 7998694025800376279, guid: f45a06916fe4b974dadacad5be2a53c6, type: 3}
   BaseSpeed: 5
   DashSpeed: 20
   dashTime: 0.15
+  dashRegenTime: 0.25
+  BaseDashAmount: 2
+  dashAmount: 0
+  health: 0
+  defense: 0
+  atkPower: 0
 --- !u!61 &781552563
 BoxCollider2D:
   m_ObjectHideFlags: 0
