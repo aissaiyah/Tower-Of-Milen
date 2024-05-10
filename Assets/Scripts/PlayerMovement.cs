@@ -15,9 +15,20 @@ public class PlayerMovement : MonoBehaviour
     public float dashTime;
     private Timer dashTimer;
 
+    public float health;
+
+    public float defense;
+
+    public float atkPower;
+
+    public float dashAmount;
+
+
+
     private void Start()
     {
         dashTimer = gameObject.AddComponent<Timer>();//make timer
+        dashAmount = 2;
     }
     void Update()
     {
@@ -28,8 +39,9 @@ public class PlayerMovement : MonoBehaviour
             dashVector = vector;//save vector player was moving in when they dashed
             dashTimer.setTime(dashTime);
         }
-        if (dashTimer!=null && dashTimer.timerIsRunning())//if timer is running then move at DashSpeed
+        if (dashTimer!=null && dashTimer.timerIsRunning() /*&& dashAmount > 0*/)//if timer is running then move at DashSpeed
         {
+            dashAmount -= 1;
             vector = dashVector;
             vector *= DashSpeed;
         }
