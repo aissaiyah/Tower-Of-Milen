@@ -269,6 +269,7 @@ MonoBehaviour:
   worldPosY: 0
   Enemy: {fileID: 3663623177934393553, guid: 135ddcc63ab7ebb4996a2246c025beb2, type: 3}
   position: {x: 0, y: 0, z: 0}
+  enemyCount: 0
 --- !u!1 &739541530
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 739541531}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,6 +304,9 @@ MonoBehaviour:
   BaseSpeed: 5
   DashSpeed: 20
   dashTime: 0.15
+  health: 0
+  defense: 0
+  atkPower: 0
 --- !u!61 &739541532
 BoxCollider2D:
   m_ObjectHideFlags: 0

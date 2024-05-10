@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float timeLeft;
+    public static float timeLeft;
 
     public Timer(float time)
     {
@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
         if (timeLeft > 0) timeLeft -= Time.deltaTime;
-        else timeLeft = 0;
+        else timeLeft = 0;  //PlayerMovement.dashAmount += 2;
     }
     public void setTime(float time)
     {
