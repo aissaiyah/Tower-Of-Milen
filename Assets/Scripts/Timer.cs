@@ -2,29 +2,48 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public static float timeLeft;
+    public float timeLeft;
+    public bool timerIsRunning;
 
-    public Timer(float time)
-    {
-        timeLeft = time;
-    }
+    public delegate void onEndDelegate();
+    public onEndDelegate onEndCallback;
 
     void Update()
     {
-        if (timeLeft > 0) timeLeft -= Time.deltaTime;
-        else timeLeft = 0;  //PlayerMovement.dashAmount += 2;
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+        }
+        else if(timerIsRunning)
+        {
+            timeLeft = 0;
+            timerIsRunning = false;
+            onEndCallback?.Invoke();
+        }
+
     }
-    public void setTime(float time)
+    public void SetTime(float time)
     {
-        timeLeft=time;
+        timeLeft = time;
+        timerIsRunning = true;
     }
-    public bool timerIsRunning()
+    public void StopTimer()
     {
-        if (timeLeft > 0) return true;
-        else return false;
+        timeLeft = 0;
+        timerIsRunning = false;
     }
+    public bool IsRunning()
+    {
+        return timerIsRunning;
+    }
+    public void OnEndMethod(onEndDelegate callback)
+    {
+        onEndCallback = callback;
+    }
+
 }
