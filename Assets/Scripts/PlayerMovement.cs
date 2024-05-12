@@ -34,7 +34,9 @@ public class PlayerMovement : MonoBehaviour
         dashRegenTimer = Instantiate(timer);
         dashRegenTimer.OnEndMethod(OnDashRegenEnd);
 
-        dashAmount=BaseDashAmount;
+       
+
+        dashAmount =BaseDashAmount;
     }
     void Update()
     {
